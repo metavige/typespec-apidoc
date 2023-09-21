@@ -4,8 +4,11 @@
   "type": "module",
   "dependencies": {
     "@typespec/compiler": "latest",
-    "@typespec/rest": "latest",
-    "@typespec/openapi3": "latest"
+    "@typespec/http": "^0.48.0",
+    "@typespec/openapi": "^0.48.0",
+    "@typespec/openapi3": "^0.48.1",
+    "@typespec/rest": "^0.48.0",
+    "@typespec/versioning": "^0.48.0"
   },
   "private": true,
   "devDependencies": {
@@ -13,6 +16,7 @@
     "prettier": "^3.0.3"
   },
   "scripts": {
-    "start": "bun tsp "
+    "build": "bun x tsp compile main.tsp --emit @typespec/openapi3 --output-dir dist",
+    "watch-build": "bun run build --watch"
   }
 }
